@@ -41,7 +41,7 @@ func (r *siteVerificationResource) Schema(_ context.Context, _ resource.SchemaRe
 	resp.Schema = schema.Schema{
 		Description: "Waits until Shieldome confirms ownership of a shieldome_site through its DNS TXT " +
 			"record. Create the record first (depends_on), e.g. with the cloudflare or aws provider. " +
-			"If the verification later stops being active (record removed, authorization expired), the " +
+			"If the verification later stops being active (e.g. a written authorization expired), the " +
 			"next plan re-creates this resource and checks again.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{Computed: true,

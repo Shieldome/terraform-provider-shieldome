@@ -8,7 +8,7 @@ description: |-
 
 Waits until Shieldome confirms ownership of a `shieldome_site` through its DNS TXT record,
 checking every 15 seconds until `timeout`. Create the record first with your DNS provider
-(`depends_on`). If verification later stops being active (record removed, written authorization
+(`depends_on`). If verification later stops being active (for example a written authorization
 expired), the next plan re-creates this resource and checks again. Destroying it changes nothing
 in Shieldome.
 
