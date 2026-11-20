@@ -10,8 +10,8 @@ jobs:
       - uses: opentofu/setup-opentofu@v1
         with: { tofu_wrapper: false }
       - run: go vet ./...
-      - run: go test ./...
+      # provider tests through the real OpenTofu CLI, against an in-memory API
+      - run: TF_ACC_TERRAFORM_PATH="$(command -v tofu)" go test -v ./...
         env:
-          TF_ACC_TERRAFORM_PATH: /usr/local/bin/tofu
           TF_ACC_PROVIDER_HOST: registry.opentofu.org
           TF_ACC_PROVIDER_NAMESPACE: hashicorp
